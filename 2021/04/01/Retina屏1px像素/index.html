@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>Retina屏1px像素-</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<meta name="keywords" content="blog">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+	<meta name="generator" content="Hexo 5.4.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>CZY</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/ibaramayaka">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+        </ul>
+        <h1>Retina屏1px像素</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">CZY</a></span>
+                <p>2021-04-01 08:36:10</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="viewport-视窗"><a href="#viewport-视窗" class="headerlink" title="viewport 视窗"></a>viewport 视窗</h4><ul>
+<li><p>在桌面浏览器中，viewport就是浏览器窗口的宽度高度。但在移动端设备上，假如没有viewport，移动端会采用桌面版的屏幕宽度，然后适应屏幕进行缩放。设置viewport可以控制页面的宽度并且在不同的设备上进行缩放。<br>（A viewport controls how a webpage is displayed on a mobile device. Without a viewport, mobile devices will render the page at a typical desktop screen width, scaled to fit the screen. Setting a viewport gives control over the page’s width and scaling on different devices.）  </p>
+</li>
+<li><p>移动端提供了两个viewport，虚拟的viewport：visual viewport和布局的viewport：layout viewport。<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6333927/difference-between-visual-viewport-and-layout-viewport">https://stackoverflow.com/questions/6333927/difference-between-visual-viewport-and-layout-viewport</a></p>
+</li>
+</ul>
+<h4 id="物理像素-amp-设备独立像素-amp-CSS像素"><a href="#物理像素-amp-设备独立像素-amp-CSS像素" class="headerlink" title="物理像素 &amp; 设备独立像素 &amp; CSS像素"></a>物理像素 &amp; 设备独立像素 &amp; CSS像素</h4><ul>
+<li><p>物理像素又被称为设备像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。</p>
+</li>
+<li><p>设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，然后由相关系统转换为物理像素。</p>
+</li>
+<li><p>CSS设置的像素值（px）属于普通像素点，或者是标准像素点。CSS像素是一个抽像的单位，主要使用在浏览器上，用来精确度量Web页面上的内容。一般情况之下，CSS像素称为与设备无关的像素(device-independent pixel)，简称DIPs。</p>
+</li>
+</ul>
+<h4 id="devicePixelRatio-设备像素比"><a href="#devicePixelRatio-设备像素比" class="headerlink" title="devicePixelRatio 设备像素比"></a>devicePixelRatio 设备像素比</h4><p>设备像素比简称为dpr，其定义了物理像素和设备独立像素的对应关系。它的值可以按下面的公式计算得到：</p>
+<ul>
+<li>设备像素比 ＝ 物理像素 / 设备独立像素</li>
+</ul>
+<h4 id="高清屏和普通屏幕"><a href="#高清屏和普通屏幕" class="headerlink" title="高清屏和普通屏幕"></a>高清屏和普通屏幕</h4><p>高清屏和普通屏来做对比就是普通屏幕的1个像素点就是1个物理像素点，而高清屏的1个像素点是4个物理像素点。<br>通过计算 devicePixelRatio 的值，可以区分普通显示屏和高清显示器，当devicePixelRatio值等于1时（也就是最小值），那么它是普通显示屏，当devicePixelRatio值大于1(通常是1.5、2.0)，那么它就是高清显示屏。<br>比如iPhone6的devicePixelRatio为2，所以是高清显示屏。iPhone6s plus这种高清屏dpr是3。</p>
+<h4 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h4><p>REM就是相对于根元素<html>的font-size来做计算。因为网页<html>的默认字体大小是 16px，所以</p>
+<ul>
+<li>1rem=16px ，10rem=160px</li>
+</ul>
+<h3 id="Retina屏幕1px产生的问题"><a href="#Retina屏幕1px产生的问题" class="headerlink" title="Retina屏幕1px产生的问题"></a>Retina屏幕1px产生的问题</h3><p>因为viewport的设置和屏幕物理分辨率是按比例而不是相同的，<meta>标签里实际上是设置了ideal viewport的宽度，而不同手机的ideal viewport宽度是不一样的。移动端window对象有devicePixelRatio属性，CSS里写1px的边框在devicePixelRatio = 2的Retina屏下会显示成2px。</p>
+<h3 id="如何实现Retina屏幕上1px的效果"><a href="#如何实现Retina屏幕上1px的效果" class="headerlink" title="如何实现Retina屏幕上1px的效果"></a>如何实现Retina屏幕上1px的效果</h3><h4 id="方法一-Viewport-REM"><a href="#方法一-Viewport-REM" class="headerlink" title="方法一 Viewport + REM"></a>方法一 Viewport + REM</h4><p>通过viewport + REM的方式来兼容,（淘宝移动端的方法）使用JS动态获取屏幕的设备像素比devicePixelRatio，然后动态设置viewport。  </p>
+<ul>
+<li>devicePixelRatio=2的时候，控制viewport的initial-scale值为0.5进行缩放</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;initial-scale=0.5, user-scalable=no&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>devicePixelRatio=3的时候，</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;initial-scale=0.333333, user-scalable=no&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>Android下不支持initial-scale，虽然这不适用于安卓, 但它里面的这一段代码可以用来做对安卓机的部署.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (!dpr &amp;&amp; !scale) &#123;<br>    <span class="hljs-keyword">var</span> isAndroid = win.navigator.appVersion.match(<span class="hljs-regexp">/android/gi</span>);<br>    <span class="hljs-keyword">var</span> isIPhone = win.navigator.appVersion.match(<span class="hljs-regexp">/iphone/gi</span>);<br>    <span class="hljs-keyword">var</span> devicePixelRatio = win.devicePixelRatio;<br>    <span class="hljs-keyword">if</span> (isIPhone) &#123;<br>        <span class="hljs-comment">// iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案</span><br>        <span class="hljs-keyword">if</span> (devicePixelRatio &gt;= <span class="hljs-number">3</span> &amp;&amp; (!dpr || dpr &gt;= <span class="hljs-number">3</span>)) &#123;                <br>            dpr = <span class="hljs-number">3</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (devicePixelRatio &gt;= <span class="hljs-number">2</span> &amp;&amp; (!dpr || dpr &gt;= <span class="hljs-number">2</span>))&#123;<br>            dpr = <span class="hljs-number">2</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            dpr = <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// 其他设备下（比如安卓），仍旧使用1倍的方案</span><br>        dpr = <span class="hljs-number">1</span>;<br>    &#125;<br>    scale = <span class="hljs-number">1</span> / dpr;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>对于安卓机做检测，动态加载CSS</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> link = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;link&#x27;</span>);<br>link.setAttribute(<span class="hljs-string">&quot;rel&quot;</span>,<span class="hljs-string">&quot;stylesheet&quot;</span>);<br>link.setAttribute(<span class="hljs-string">&quot;type&quot;</span>,<span class="hljs-string">&quot;text/css&quot;</span>);<br>link.setAttribute(<span class="hljs-string">&quot;href&quot;</span>,<span class="hljs-string">&quot;.......Android.css&quot;</span>);<br><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;head&#x27;</span>).appendChild(link);<br></code></pre></td></tr></table></figure>
+<p>这个方案结合了viewport和rem，所以使用的时候要考虑到REM布局。另外，REM布局下字体的单位仍建议使用px，还有出现1px像素线的地方，也仍旧使用border-width:1px;而不是border-width:.1rem;</p>
+<h4 id="方法二-Media-Query"><a href="#方法二-Media-Query" class="headerlink" title="方法二 Media Query"></a>方法二 Media Query</h4><p>根据屏幕的设备像素比来加载不同图片可以使用CSS的Media Query来解决，它对应devicePixelRatio有几个查询值-webkit-device-pixel-ratio，-webkit-min-device-pixel-ratio和 -webkit-max-device-pixel-ratio，但是这样我们就要切图片的一倍图和二倍图。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.img</span>&#123; <span class="hljs-comment">/* 普通显示屏(设备像素比例小于等于1.3)使用一倍图 */</span><br>    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">img_1x.png</span>);<br>&#125;<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">-webkit-min-device-pixel-ratio</span>:<span class="hljs-number">1.5</span>)&#123;<br>    <span class="hljs-selector-class">.img</span>&#123;<span class="hljs-comment">/* 高清显示屏(设备像素比例大于等于1.5)使用二倍图  */</span><br>        <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">img_2x.png</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>据说IOS8以上CSS可以用小数点，理论上可以这样写。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.border</span> &#123;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#ffffff</span>;<br>&#125;<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">-webkit-min-device-pixel-ratio</span>: <span class="hljs-number">2</span>) &#123;<br>    <span class="hljs-selector-class">.border</span> &#123; <span class="hljs-attribute">border</span>: <span class="hljs-number">0.5px</span> solid <span class="hljs-number">#ffffff</span>; &#125;<br>&#125;<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">-webkit-min-device-pixel-ratio</span>: <span class="hljs-number">3</span>) &#123;<br>    <span class="hljs-selector-class">.border</span> &#123; <span class="hljs-attribute">border</span>: <span class="hljs-number">0.333333px</span> solid <span class="hljs-number">#ffffff</span>; &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>但是由于安卓与低版本IOS不适用，所以不推荐这种写法。</p>
+<h4 id="方法三-box-shadow"><a href="#方法三-box-shadow" class="headerlink" title="方法三 box-shadow"></a>方法三 box-shadow</h4><p>利用CSS对阴影处理的方式实现</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">-webkit-<span class="hljs-attribute">box-shadow</span>:<span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> -<span class="hljs-number">1px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>);<br></code></pre></td></tr></table></figure>
+
+<p>优点是基本所有场景都能满足，包含圆角的button，单条，多条线。<br>缺点是颜色不好处理， 黑色 rgba(0,0,0,1) 是最浓的情况，而且有阴影出现。</p>
+<h4 id="方法四-background-image背景渐变实现"><a href="#方法四-background-image背景渐变实现" class="headerlink" title="方法四 background-image背景渐变实现"></a>方法四 background-image背景渐变实现</h4><p>通过CSS修改image，设置图片50%有颜色，50%透明，实现1px的效果。<br>linear-gradient属性一个表示颜色线性渐变的 image，语法是linear-gradient([ [ [ <angle>| to[top | bottom] || [left | right] ],]? <color-stop>[, <color-stop>]+);</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.border</span> &#123;<br>    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">180deg</span>, red, red <span class="hljs-number">50%</span>, transparent <span class="hljs-number">50%</span>),<br>    <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">270deg</span>, red, red <span class="hljs-number">50%</span>, transparent <span class="hljs-number">50%</span>),<br>    <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">0deg</span>, red, red <span class="hljs-number">50%</span>, transparent <span class="hljs-number">50%</span>),<br>    <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, red, red <span class="hljs-number">50%</span>, transparent <span class="hljs-number">50%</span>);<br>    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">100%</span> <span class="hljs-number">1px</span>, <span class="hljs-number">1px</span> <span class="hljs-number">100%</span> ,<span class="hljs-number">100%</span> <span class="hljs-number">1px</span>, <span class="hljs-number">1px</span> <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">background-repeat</span>: no-repeat;<br>    <span class="hljs-attribute">background-position</span>: top, right top,  bottom, left top;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这个方法代码量大，而且无法实现边框的圆角效果。</p>
+<h4 id="方法五-border-image"><a href="#方法五-border-image" class="headerlink" title="方法五 border-image"></a>方法五 border-image</h4><p>图片可以是gif、png、base 64，</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.border</span>&#123;<br>    <span class="hljs-attribute">border-width</span>: <span class="hljs-number">1px</span>;<br>    <span class="hljs-attribute">border-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">border.png</span>) <span class="hljs-number">2</span> repeat;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>缺点</p>
+<ul>
+<li>想要实现圆角效果的话要放大修改图片</li>
+<li>边框颜色不方便修改</li>
+<li>边框存在多种颜色的时候麻烦</li>
+</ul>
+<h4 id="方法六-transform-scale-0-5-伪元素-before-after"><a href="#方法六-transform-scale-0-5-伪元素-before-after" class="headerlink" title="方法六 transform: scale(0.5)+伪元素:before, :after"></a>方法六 transform: scale(0.5)+伪元素:before, :after</h4><p>原理去掉把原先元素的 border ，然后利用 :before 或者 :after 重做 border ，并 transform 的 scale 属性将元素大小缩小为设置的值的一半，将原先的元素相对定位，新写的 border 设置绝对定位。</p>
+<p>使用样式的时候，要结合 JS 代码，判断是否 Retina 屏</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span>(<span class="hljs-built_in">window</span>.devicePixelRatio &amp;&amp; devicePixelRatio &gt;= <span class="hljs-number">2</span>)&#123;<br>    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.box&#x27;</span>).className += <span class="hljs-string">&#x27;box&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>看一下demo代码：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">border</span>: none;<br>    <span class="hljs-attribute">position</span>: relative;<br>    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">3</span>;<br>&#125;<br><span class="hljs-selector-class">.box</span> :before &#123;<br>    content: <span class="hljs-string">&#x27;&#x27;</span>;<br>    <span class="hljs-attribute">position</span>: absolute;<br>    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;<br>    -webkit-<span class="hljs-attribute">box-sizing</span>: border-box;<br>    <span class="hljs-attribute">box-sizing</span>: border-box;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">200%</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">200%</span>;<br>    -webkit-<span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0.5</span>);<br>    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0.5</span>);<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#0b2029</span>;<br>    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#737373</span>;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>;<br>    -webkit-<span class="hljs-attribute">transform-origin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">transform-origin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>:before和:after 是用来给指定的元素的内容前面或后面插入新的内容。给:before添加了属性 content并设置为空（对于伪元素 :before 和 :after 而言，属性 content 是必须设置的否则伪元素不会生效），然后给它设置我需要的样式的两倍大小，再设置transform: scale(0.5);就实现了1px的效果。像这里的demo代码，我的box里面有input，所以要设置index，否则input就会被覆盖。</p>
+<p>注意<input type="button">没有:before, :after伪元素。</p>
+<p>ps：起初，伪元素的前缀使用的是单冒号语法，但为了和伪类(pseudo-classes)”区分开，在CSS3的规范里，伪元素的语法被修改成使用双冒号，成为::before &amp; ::after ，但是因为IE8只支持单冒号的语法，所以如果你想兼容IE8，保险的做法是使用单冒号。</p>
+<p>对于大型的项目，推荐使用手淘的flexible方案，小型的页面用 transform: scale(0.5)+伪元素:before, :after较为方便。</p>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2021/04/01/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>响应式开发</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2021/03/31/%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>题目汇总</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2021 By CZY. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/ibaramayaka">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>input相关处理-</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<meta name="keywords" content="blog">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+	<meta name="generator" content="Hexo 5.4.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>CZY</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/ibaramayaka">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+        </ul>
+        <h1>input相关处理</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">CZY</a></span>
+                <p>2021-04-02 08:17:30</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/129">https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/129</a></p>
+<h3 id="防抖节流介绍"><a href="#防抖节流介绍" class="headerlink" title="防抖节流介绍"></a>防抖节流介绍</h3><ul>
+<li><p>防抖<br>当在页面中使用 onkeyUp 监听用户在 input 框中的输入，如果用户按住一个 6 不放，那监听事件一直被触发，这样就浪费了一部分性能了，那么在一定事件内监听，也就是说我过了一秒再来看看你输入了多少个 6。</p>
+</li>
+<li><p>节流（throttle）： 函数节流就是函数每隔n秒执行一次</p>
+</li>
+</ul>
+<h4 id="函数防抖和节流区别在于："><a href="#函数防抖和节流区别在于：" class="headerlink" title="函数防抖和节流区别在于："></a>函数防抖和节流区别在于：</h4><ul>
+<li><p>函数防抖的情况下，函数将一直推迟执行，造成不会被执行的效果；</p>
+</li>
+<li><p>函数节流的情况下，函数将每隔 n 秒执行一次  </p>
+</li>
+<li><p>节流防抖就好比乘电梯，比如delay(等待)是10秒，那么防抖就是电梯每进来一个人就要等10秒再运行，而节流就是电梯保证每10秒可以运行一次</p>
+</li>
+<li><p>它和防抖动最大的区别就是，节流函数不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数。</p>
+</li>
+</ul>
+<h4 id="防抖代码："><a href="#防抖代码：" class="headerlink" title="防抖代码："></a>防抖代码：</h4><figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">用户名: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">onblur</span>=<span class="hljs-string">&quot;checkUsername&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;请输入用户名&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> timer;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> $username = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;username&#x27;</span>);</span><br><span class="javascript">  $username.addEventListener(<span class="hljs-string">&#x27;input&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(++count);</span><br><span class="javascript">    <span class="hljs-comment">// 每次输入就清除定时器,一直输入就一直清除,下面的console.log就永远不会触发,</span></span><br><span class="javascript">    <span class="hljs-comment">// 直到你不输入一秒后才触发</span></span><br><span class="javascript">    <span class="hljs-built_in">clearTimeout</span>(timer);</span><br><span class="javascript">    timer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;发请求到后台,检查用户是否已注册&#x27;</span>);</span><br>    &#125;, 1000)<br><span class="javascript">  &#125;, <span class="hljs-literal">false</span>)</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="节流代码："><a href="#节流代码：" class="headerlink" title="节流代码："></a>节流代码：</h4><figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">用户名: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;请输入用户名&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> timer;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;</span><br><br><span class="javascript">  <span class="hljs-keyword">var</span> $username = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;username&#x27;</span>);</span><br><span class="javascript">  $username.addEventListener(<span class="hljs-string">&#x27;input&#x27;</span>, throttle(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(++count);</span><br><span class="javascript">  &#125;), <span class="hljs-literal">false</span>)</span><br><br><span class="javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throttle</span>(<span class="hljs-params">callback</span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-comment">// 上一次点击的时间</span></span><br><span class="javascript">    <span class="hljs-keyword">let</span> preTime = <span class="hljs-built_in">Date</span>.now();</span><br><span class="javascript">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">      <span class="hljs-keyword">let</span> args = <span class="hljs-built_in">arguments</span>;</span><br><span class="javascript">      <span class="hljs-comment">// 现在点击时间</span></span><br><span class="javascript">      <span class="hljs-keyword">let</span> now = <span class="hljs-built_in">Date</span>.now();</span><br><span class="javascript">      <span class="hljs-comment">// 现在点击的时间跟上一次点击的时间如果超过了一秒,执行回调</span></span><br>      if (now - preTime &gt;= 1000) &#123;<br>        callback(args);<br><span class="javascript">        <span class="hljs-comment">// 从新计时,这次点击的时间成为下一次点击时间的起点</span></span><br>        preTime = now;<br>      &#125;<br>    &#125;<br>  &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="处理中文输入介绍"><a href="#处理中文输入介绍" class="headerlink" title="处理中文输入介绍"></a>处理中文输入介绍</h3><h4 id="为什么需要处理"><a href="#为什么需要处理" class="headerlink" title="为什么需要处理"></a>为什么需要处理</h4><ul>
+<li>因为input组件常常跟form表单一起出现，需要做表单验证</li>
+<li>为了解决中文输入法输入内容时还没将中文插入到输入框就验证的问题,我们希望中文输入完成以后才验证</li>
+</ul>
+<h4 id="怎么处理"><a href="#怎么处理" class="headerlink" title="怎么处理"></a>怎么处理</h4><ul>
+<li>elementui是通过compositionstart &amp; compositionend做的中文输入处理：<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">&lt;input<br>    ref=&quot;input&quot;<br>    @compositionstart=&quot;handleComposition&quot;<br>    @compositionupdate=&quot;handleComposition&quot;<br>    @compositionend=&quot;handleComposition&quot;<br>&gt;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>这3个方法是原生的方法，这里简单介绍下，官方定义如下compositionstart 事件触发于一段文字的输入之前（类似于 keydown 事件，<br>但是该事件仅在若干可见字符的输入之前，而这些可见字符的输入可能需要一连串的键盘操作、语音识别或者点击输入法的备选词）<br>简单来说就是切换中文输入法时在打拼音时(此时input内还没有填入真正的内容)，会首先触发compositionstart，<br>然后每打一个拼音字母，触发compositionupdate，最后将输入好的中文填入input中时触发compositionend。<br>触发compositionstart时，文本框会填入 “虚拟文本”（待确认文本），同时触发input事件；在触发compositionend时，<br>就是填入实际内容后（已确认文本）,所以这里如果不想触发input事件的话就得设置一个bool变量来控制。</p>
+<p>根据上图可以看到：<br>输入到input框触发input事件<br>失去焦点后内容有改变触发change事件<br>识别到你开始使用中文输入法触发**compositionstart 事件<br>未输入结束但还在输入中触发compositionupdate **事件<br>输入完成（也就是我们回车或者选择了对应的文字插入到输入框的时刻）触发compositionend事件</p>
+<h3 id="判断输入的是否是一个正确的网址介绍"><a href="#判断输入的是否是一个正确的网址介绍" class="headerlink" title="判断输入的是否是一个正确的网址介绍"></a>判断输入的是否是一个正确的网址介绍</h3><p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/138">https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/138</a></p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// vue-element-admin 上面的方法</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">validURL</span>(<span class="hljs-params">url</span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> reg = <span class="hljs-regexp">/^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&amp;%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]&#123;2&#125;|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]&#123;2&#125;|[1-9]?[0-9]))&#123;3&#125;|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]&#123;2&#125;))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?&#x27;\\+&amp;%$#=~_-]+))*$/</span>;<br>    <span class="hljs-keyword">return</span> reg.test(url);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> isUrl = <span class="hljs-function">(<span class="hljs-params">urlStr</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">const</span> &#123; href, origin, host, hostname, pathname &#125; = <span class="hljs-keyword">new</span> URL(urlStr);<br>        <span class="hljs-keyword">return</span> href &amp;&amp; origin &amp;&amp; host &amp;&amp; hostname &amp;&amp; pathname &amp;&amp; <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">catch</span> (e) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="模糊搜索结果的关键词高亮显示介绍："><a href="#模糊搜索结果的关键词高亮显示介绍：" class="headerlink" title="模糊搜索结果的关键词高亮显示介绍："></a>模糊搜索结果的关键词高亮显示介绍：</h3><p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/141">https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/141</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> panter = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(关键词, <span class="hljs-string">&#x27;g&#x27;</span>)<br>该行字符串.replace(panter, <span class="hljs-string">&#x27;&lt;b style=&quot;color: #2D7BFF&quot;&gt;&#x27;</span> + 关键词 + <span class="hljs-string">&#x27;&lt;/b&gt;&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>ps：如果是vue项目，直接与v-html结合使用更爽哦~</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;ie=edge&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>auto complete<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    bdi &#123;<br><span class="css">        <span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">0</span>, <span class="hljs-number">136</span>, <span class="hljs-number">255</span>);</span><br>    &#125;<br><br><span class="css">    <span class="hljs-selector-tag">li</span> &#123;</span><br><span class="css">        <span class="hljs-attribute">list-style</span>: none;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;inp&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><br><span class="javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">fn, timeout = <span class="hljs-number">300</span></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-keyword">let</span> t;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> &#123;</span><br>      if (t) &#123;<br><span class="javascript">        <span class="hljs-built_in">clearTimeout</span>(t);</span><br>      &#125;<br><span class="javascript">      t = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;</span><br>        fn.apply(fn, args);<br>      &#125;, timeout);<br>    &#125;<br>  &#125;<br><br><span class="javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">memorize</span>(<span class="hljs-params">fn</span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-keyword">const</span> cache = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();</span><br><span class="javascript">    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">name</span>) =&gt;</span> &#123;</span><br>      if (!name) &#123;<br><span class="javascript">        container.innerHTML = <span class="hljs-string">&#x27;&#x27;</span>;</span><br><span class="javascript">        <span class="hljs-keyword">return</span>;</span><br>      &#125;<br>      if (cache.get(name)) &#123;<br>        container.innerHTML = cache.get(name);<br><span class="javascript">        <span class="hljs-keyword">return</span>;</span><br>      &#125;<br><span class="javascript">      <span class="hljs-keyword">const</span> res = fn.call(fn, name).join(<span class="hljs-string">&#x27;&#x27;</span>);</span><br>      cache.set(name, res);<br>      container.innerHTML = res;<br>    &#125;<br>  &#125;<br><br><span class="javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleInput</span>(<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-keyword">const</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">`\(<span class="hljs-subst">$&#123;value&#125;</span>\)`</span>);</span><br><span class="javascript">    <span class="hljs-keyword">const</span> search = data.reduce(<span class="hljs-function">(<span class="hljs-params">res, cur</span>) =&gt;</span> &#123;</span><br>      if (reg.test(cur)) &#123;<br><span class="javascript">        <span class="hljs-keyword">const</span> match = <span class="hljs-built_in">RegExp</span>.$1;</span><br><span class="handlebars"><span class="xml">        res.push(`<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>$&#123;cur.replace(match, &#x27;<span class="hljs-tag">&lt;<span class="hljs-name">bdi</span>&gt;</span>$&amp;<span class="hljs-tag">&lt;/<span class="hljs-name">bdi</span>&gt;</span>&#x27;)&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>`);</span></span><br>      &#125;<br><span class="javascript">      <span class="hljs-keyword">return</span> res;</span><br>    &#125;, []);<br><span class="javascript">    <span class="hljs-keyword">return</span> search;</span><br>  &#125;<br><br><span class="javascript">  <span class="hljs-keyword">const</span> data = [<span class="hljs-string">&quot;上海野生动物园&quot;</span>, <span class="hljs-string">&quot;上饶野生动物园&quot;</span>, <span class="hljs-string">&quot;北京巷子&quot;</span>, <span class="hljs-string">&quot;上海中心&quot;</span>, <span class="hljs-string">&quot;上海黄埔江&quot;</span>, <span class="hljs-string">&quot;迪士尼上海&quot;</span>, <span class="hljs-string">&quot;陆家嘴上海中心&quot;</span>]</span><br><span class="javascript">  <span class="hljs-keyword">const</span> container = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.container&#x27;</span>);</span><br><span class="javascript">  <span class="hljs-keyword">const</span> memorizeInput = memorize(handleInput);</span><br><span class="javascript">  <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.inp&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;input&#x27;</span>, debounce(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> &#123;</span><br>    memorizeInput(e.target.value);<br>  &#125;))<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+
+    
+    <a href="/2021/04/01/%E5%B1%85%E4%B8%AD/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>居中</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2021 By CZY. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/ibaramayaka">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+
+</html>

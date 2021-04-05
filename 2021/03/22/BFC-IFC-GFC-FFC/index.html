@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>BFC-IFC-GFC-FFC-</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<meta name="keywords" content="blog">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+	<meta name="generator" content="Hexo 5.4.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>CZY</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/ibaramayaka">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+        </ul>
+        <h1>BFC-IFC-GFC-FFC</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">CZY</a></span>
+                <p>2021-03-22 20:06:36</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/qs-cnblogs/p/12349887.html">https://www.cnblogs.com/qs-cnblogs/p/12349887.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36422236/article/details/88763187hex">https://blog.csdn.net/sinat_36422236/article/details/88763187hex</a></p>
+<p>直译为”块级格式化上下文”。  </p>
+<ul>
+<li>一个独立的布局环境，只有Block-level box参与，BFC规定了内部的Block-level Box如何布局，BFC内部的元素布局与外部互不影响。  </li>
+<li>是Web页面的可视化CSS渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。  </li>
+<li>可以通过一些条件触发BFC，从而实现布局上的需求或解决一些问题；</li>
+<li>可以将BFC想象成一个工具，无需探究其定义，只要着重理解其功能（特性）即可。</li>
+</ul>
+<h3 id="需要先了解Box、Formatting-Context"><a href="#需要先了解Box、Formatting-Context" class="headerlink" title="需要先了解Box、Formatting Context"></a>需要先了解Box、Formatting Context</h3><h4 id="Box：css布局的基本单位"><a href="#Box：css布局的基本单位" class="headerlink" title="Box：css布局的基本单位"></a>Box：css布局的基本单位</h4><ul>
+<li>Box 是 CSS 布局的对象和基本单位，一个页面可以看成是由很多个 Box 组成的。  </li>
+<li>元素的类型和 display 属性，决定了这个 Box 的类型。不同类型的 Box，会参与不同的 Formatting Context（一个决定如何渲染文档的容器），因此Box内的元素会以不同的方式渲染。有哪些box：<br>  1.block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；<br>  2.inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context；<br>  3.run-in box: css3 中才有， 这儿先不讲了。  </li>
+</ul>
+<h4 id="Formatting-Context"><a href="#Formatting-Context" class="headerlink" title="Formatting Context"></a>Formatting Context</h4><p>Formatting context 是 W3C CSS2.1 规范中的一个概念。  </p>
+<ul>
+<li>它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。  </li>
+<li>最常见的 Formatting context<br>  1.Block fomatting context (简称BFC)<br>  2.Inline formatting context (简称IFC)。  </li>
+</ul>
+<h3 id="形成BFC的条件"><a href="#形成BFC的条件" class="headerlink" title="形成BFC的条件"></a>形成BFC的条件</h3><p>1.根元素（html）<br>2.float值非none<br>3.overflow值非visible（hidden，auto，scroll）<br>4.display值为inline-block、table-cell、table-caption、flex、inline-flex<br>5.position值不是static或者relative，为absolute、fixed  </p>
+<h3 id="BFC的特性"><a href="#BFC的特性" class="headerlink" title="BFC的特性"></a>BFC的特性</h3><p>1、Box垂直方向的距离由margin决定，属于同一个BFC的两个相邻容器的上下margin会重叠（重点）<br>2、计算BFC高度时浮动元素也参于计算（重点）<br>3、BFC的区域不会与浮动容器发生重叠（重点）<br>4、BFC内的容器在垂直方向依次排列<br>5、元素（块盒与行盒）的margin-left与其包含容器的border-left相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>6、BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</p>
+<h3 id="BFC的作用"><a href="#BFC的作用" class="headerlink" title="BFC的作用"></a>BFC的作用</h3><p>1.通过BFC特性解决上下margin重叠问题：添加父元素并添加声明overflow: hidden;</p>
+<ul>
+<li>发生margin重叠：  </li>
+</ul>
+<p><img src="/2021/03/22/BFC-IFC-GFC-FFC/3.png" alt="margin重叠" title="margin重叠">  </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    #above &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">background</span>: red;</span><br><span class="css">      <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">50px</span>;</span><br>    &#125;<br>    #bellow &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">background</span>: yellow;</span><br><span class="css">      <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">30px</span>;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;above&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;bellow&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>解决margin重叠：<br><img src="/2021/03/22/BFC-IFC-GFC-FFC/4.png" alt="解决margin重叠" title="解决margin重叠"></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    #above &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">background</span>: red;</span><br><span class="css">      <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">50px</span>;</span><br>    &#125;<br>    #bellow &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">background</span>: yellow;</span><br><span class="css">      <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">30px</span>;</span><br>    &#125;<br>    #box &#123;<br><span class="css">      <span class="hljs-attribute">overflow</span>: hidden;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;above&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;bellow&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>2.解决不设置父元素高度，子元素设置浮动时父元素高度塌陷：为父元素设置overflow: hidden;  </p>
+<ul>
+<li>发生高度塌陷：<br><img src="/2021/03/22/BFC-IFC-GFC-FFC/1.png" alt="高度塌陷" title="高度塌陷">  </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    #father &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;</span><br><span class="css">      <span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span> solid red;</span><br>    &#125;<br>    #children &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">float</span>: left;</span><br><span class="css">      <span class="hljs-attribute">background</span>: yellow;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;father&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;children&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>解决高度塌陷：<br><img src="/2021/03/22/BFC-IFC-GFC-FFC/2.png" alt="解决高度塌陷" title="解决高度塌陷">   </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    #father &#123;<br><span class="css">        <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;</span><br><span class="css">        <span class="hljs-attribute">overflow</span>: hidden;</span><br><span class="css">        <span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span> solid red;</span><br>    &#125;<br>    #children &#123;<br><span class="css">        <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">        <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">        <span class="hljs-attribute">float</span>: left;</span><br><span class="css">        <span class="hljs-attribute">background</span>: yellow;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;father&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;children&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>3.可以利用BFC实现多栏布局（两栏、三栏、圣杯、双飞翼等）：为非浮动元素设置overflow: hidden;  </p>
+<ul>
+<li>发生浮动重叠：<br><img src="/2021/03/22/BFC-IFC-GFC-FFC/5.png" alt="元素浮动覆盖" title="元素浮动覆盖"></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    #left &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">background</span>: red;</span><br><span class="css">      <span class="hljs-attribute">float</span>: left;</span><br>    &#125;<br>    #right &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">150px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;</span><br><span class="css">      <span class="hljs-attribute">background</span>: yellow;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>解决浮动重叠：<br><img src="/2021/03/22/BFC-IFC-GFC-FFC/6.png" alt="解决元素浮动覆盖" title="解决元素浮动覆盖">  </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    #left &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">      <span class="hljs-attribute">background</span>: red;</span><br><span class="css">      <span class="hljs-attribute">float</span>: left;</span><br>    &#125;<br>    #right &#123;<br><span class="css">      <span class="hljs-attribute">width</span>: <span class="hljs-number">150px</span>;</span><br><span class="css">      <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;</span><br><span class="css">      <span class="hljs-attribute">background</span>: yellow;</span><br>    &#125;<br>    #box &#123;<br><span class="css">      <span class="hljs-attribute">overflow</span>: hidden;</span><br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>圣杯布局</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs HTML">.col &#123;<br>    position: relative;<br>    float: left;<br>&#125;<br>#container &#123;<br>    padding: 0 190px 0 190px;<br>&#125;<br>#main &#123;<br>    width: 100%;<br>    height: 400px;<br>    background-color: #ccc;<br>&#125;<br>#left &#123;<br>    width: 190px;<br>    height: 400px;<br>    margin-left: -100%;<br>    left: -190px;<br>    background-color: #0000FF;<br>&#125;<br>#right &#123;<br>    width: 190px;<br>    height: 400px;<br>    margin-left: -190px;<br>    right: -190px;<br>    background-color: #FF0000;<br>&#125;<br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;main&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span><br>    #main<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;left&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span><br>    #left<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;right&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span><br>    #right<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>双飞翼布局</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">*&#123;<br>  margin:0;<br>  padding: 0;<br>&#125;<br>.main&gt;div&#123;<br>  float: left;<br>&#125;<br>.left &#123;<br>  width: 200px;<br>  background: red;<br>  margin-left: -100%;<br>&#125;<br>.right&#123;<br>  width: 200px;<br>  background: blue;<br>  margin-left: -200px;<br>&#125;<br>.middle&#123;<br>  width: 100%;<br>  background: yellow;<br><br>&#125;<br>.content&#123;<br>    margin-left: 200px;<br>    margin-right: 200px;<br>&#125;<br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;main&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;middle&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><br>      中间<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span><br>    左边<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span><br>    右边<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>移动端响应式布局开发的三大方案</li>
+</ul>
+<ol>
+<li>@media:pc移动一套项目</li>
+<li>remPC移动两套</li>
+<li>flex</li>
+<li>vh/vw</li>
+</ol>
+<h2 id="IFC介绍"><a href="#IFC介绍" class="headerlink" title="IFC介绍"></a>IFC介绍</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011472830/article/details/73010596">https://blog.csdn.net/u011472830/article/details/73010596</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38080573/article/details/79364754">https://blog.csdn.net/weixin_38080573/article/details/79364754</a></p>
+<p>IFC(Inline-Formatting-Contexts)即内联格式化上下文布局。<br>一般都是行内元素比如：input a img span 以及display 属性值为inline-block的元素。</p>
+<h3 id="行内元素的特点："><a href="#行内元素的特点：" class="headerlink" title="行内元素的特点："></a>行内元素的特点：</h3><ul>
+<li>水平方向根据direction依次布局。</li>
+<li>不会在元素前后换行。</li>
+<li>受white-space属性的影响。</li>
+<li>margin/padding 在竖直方向无效，水平方向有效的。</li>
+<li>white/height 对非替换行内元素无效，宽度由元素内容决定。（替换元素在下面解释）</li>
+<li>非替换行内元素的行框高由line-height决定而替换行内元素的行框高则是由height，padding，border，margin决定</li>
+<li>浮动或者绝对定位会转化为block</li>
+<li>vertical-align属性生效  </li>
+</ul>
+<p>替换元素理解是元素本身没有实际的东西，最终显示出来的东西需要浏览器根据自身的某一个属性去判断。比如img属性，最终显示的东西由src这个属性值来决定的。再如input元素，最终展现出的东西事由type属性值来决定的。textarea,select、object等这些都是替换元素。</p>
+<h3 id="主要影响IFC行内布局的css："><a href="#主要影响IFC行内布局的css：" class="headerlink" title="主要影响IFC行内布局的css："></a>主要影响IFC行内布局的css：</h3><ul>
+<li>font-size</li>
+<li>line-height</li>
+<li>height</li>
+<li>vertical-aligin</li>
+</ul>
+<h3 id="IFC特性"><a href="#IFC特性" class="headerlink" title="IFC特性"></a>IFC特性</h3><p>1.框会从包含快的顶部开始一个接一个的排列。<br>2.放置这些框的时候，他们在水平方向上的外边距，边框和内边距有效。垂直方向上这些框可能会以不同的方式来对齐，比如顶部对齐、底部对齐、按照文本的基线对齐。一行上的框都包含进去的一个大框称为改行的行框。水平的padding,border,margin有效，竖直方向无效。不能指定框高。<br>3.行框的宽度由包含块和存在的浮动决定，高度至少足以包含他内部的所有框。它也许比包含在它内最高的盒子高(盒子对齐导致基线提高了)。<br>4.当一行上的行级总宽度小于行宽的时候，他们在行宽内水平方向上的排布由text-align决定。如果属性是’justify’，用户代理可能会拉伸空间和文字在inline boxs内。<br>5.当一个行内框的宽度超过了该行行宽，就会被分成几个框(文字换行)。如设置框不可分割（文字强制不给换行white-space设置为nowrap）那么该行内框会溢出该行行宽。<br>6.一般情况下行宽左边紧贴他的包含块的左边，同样他的右边也是紧贴其包含块的右边。 出现浮动时，浮动元素可能会插在包含块和行框之间。<br>一个IFC中行框高度通常是变化或不一定的，比如某一行的某个框是个很高的图片，而改行框中其他框只是文字。<br>7.计算行框内各个框的高度，对于非替换元素就是起line-height,而对于替换元素就是边界框的高度了。</p>
+<h2 id="GFC"><a href="#GFC" class="headerlink" title="GFC"></a>GFC</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Abenazhan/article/details/80346647">https://blog.csdn.net/Abenazhan/article/details/80346647</a></p>
+<p>GFC又称为网格布局<br>最外层div设置为display：grid；最外层就是网格容器。</p>
+<h2 id="FFC"><a href="#FFC" class="headerlink" title="FFC"></a>FFC</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38080573/article/details/79356730">https://blog.csdn.net/weixin_38080573/article/details/79356730</a></p>
+<p>FFC布局(弹性布局)</p>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2021/03/28/%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E8%BD%AE%E6%92%AD/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>实现无缝轮播</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2021/03/22/hello-world/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>Hello World</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2021 By CZY. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/ibaramayaka">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+
+</html>

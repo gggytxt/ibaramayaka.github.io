@@ -3,7 +3,7 @@
 
 	<head>
 		
-<title>Hello World-</title>
+<title>px-rem-em-vh-vw之间的区别-</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -244,7 +244,7 @@
         <ul class="tag">
             
         </ul>
-        <h1>Hello World</h1>
+        <h1>px-rem-em-vh-vw之间的区别</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -257,26 +257,25 @@
                 </svg>
                 
                 <span> <a href="">CZY</a></span>
-                <p>2021-03-22 20:01:20</p>
+                <p>2021-04-01 20:27:31</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+        <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904161243299854">https://juejin.cn/post/6844904161243299854</a></p>
+<h3 id="绝对长度"><a href="#绝对长度" class="headerlink" title="绝对长度"></a>绝对长度</h3><p>px是像素值，是一个固定的长度，</p>
+<h3 id="相对长度"><a href="#相对长度" class="headerlink" title="相对长度"></a>相对长度</h3><p>为什么我们需要相对长度rem em等？固定长度已经不能满足我们现在的需求了。<br>举例：比如我们在缩小我们屏幕的时候，我们不仅仅是需要缩小我们的盒子的宽高，我们还想要让我们字体大小也随之缩小，这样用户体验会更好一点。</p>
+<h4 id="rem-与-px-的计算关系"><a href="#rem-与-px-的计算关系" class="headerlink" title="rem 与 px 的计算关系"></a>rem 与 px 的计算关系</h4><p>rem的值是px的倍数<br>默认情况下font-size = 16px,那么1rem = 16px<br>rem 如何修改与px的相对计算关系<br>我们可以在并且只能在html标签（因为html节点是根节点，就是rem里面的r：root）里面修改font-size : 32px， 从而1rem = 32px  </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;div-rem&quot;</span>&gt;</span>rem<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>/* rem的用法 */<br>html&#123;<br>  font-size:16px;  // 1rem = 16px<br>&#125;<br>.div-rem&#123;<br>  width: 10rem;    // 10rem = 10 x 16 = 160px<br>  height: 10rem;   // 10rem = 10 x 16 = 160px<br>  font-size: 1rem; // 1rem = 16px<br>  background-color: #a58778;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h4 id="em-与-px-的计算关系"><a href="#em-与-px-的计算关系" class="headerlink" title="em 与 px 的计算关系"></a>em 与 px 的计算关系</h4><p>em的值是px的倍数<br>默认情况下font-size = 16px,那么1em = 16px<br>em 如何修改与px的相对计算关系<br>我们可以在自己元素上面修改font-size : 32px， 从而1em = 32px<br>如果自己元素上面没有设置font-size, 我们也可以在父元素上面设置font-size，从而来影响自己元素（孩子元素）使用的em的值。  </p>
+<h4 id="rem-与-em-的区别"><a href="#rem-与-em-的区别" class="headerlink" title="rem 与 em 的区别"></a>rem 与 em 的区别</h4><p>上面也正是rem 与 em的区别：<br>rem只能在html标签里面设置rem的依赖的值到底是多少<br>而em是可以在自己元素以及父级元素设置em依赖的值到底是多少  </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--em1--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;div-em&quot;</span>&gt;</span>em<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-comment">&lt;!--em2--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;div-em-father&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;div-em-child&quot;</span>&gt;</span>em child<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>/* em的用法1：自己元素设置font-size的值来当作em的参照值 */<br>.div-em&#123;<br>  font-size: 32px;  // 1em = 32px<br>  width: 10em;      // 10em = 10 x 32 = 320px<br>  height: 10em;     // 10em = 10 x 32 = 320px<br>  background-color: aquamarine;<br>&#125;<br>/* em的用法2：自己元素不设置，而父级元素设置font-size的值来当作em的参照值 */<br>.div-em-father&#123;<br>  font-size: 64px;  // 1em = 64px<br>&#125;<br>.div-em-child&#123;<br>  width: 10em;     // 10em = 10 x 64 = 640px<br>  height: 10em;    // 10em = 10 x 64 = 640px<br>  background-color: cadetblue;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>vh 和 vw 就是根据窗口的宽高，分成100等份，100vh就表示满高，50vh就表示一半高。<br>那么vh 和 vw与百分比的区别是什么？<br>百分比是基于父元素的设置而言的，如果父元素为100px，那么子元素100%也就是100px。<br>而 vh 和 vw 始终是针对窗口的宽高。  </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--vh vw--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;div-vh-vw&quot;</span>&gt;</span><br>  <span class="hljs-comment">&lt;!--百分比%--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;div-vh-vw-child&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>/* vh vw 的用法：视窗最为参照值 */<br>.div-vh-vw&#123;<br>  width: 10vw;  // 视窗宽度的 1/10<br>  height: 10vh;  // 视窗高度的 1/10<br>  background-color: pink;<br>&#125;<br>/* %百分比的用法：父元素的宽高作为参照值 */<br>.div-vh-vw-child&#123;<br>  width: 50%;<br>  height: 50%;<br>  background-color: aliceblue;<br>&#125;<br></code></pre></td></tr></table></figure>
 
     </div>
 </div>
@@ -306,19 +305,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2021/03/22/BFC-IFC-GFC-FFC/">
+    <a href="/2021/04/01/%E5%B1%85%E4%B8%AD/">
         <div class="last">
             <span>上一篇</span>
-            <p>BFC-IFC-GFC-FFC</p>
+            <p>居中</p>
         </div>
     </a>
     
 
     
-    <a href="/2020/11/03/HTML5/">
+    <a href="/2021/04/01/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
         <div class="next">
             <span>下一篇</span>
-            <p>HTML5相关问题</p>
+            <p>响应式开发</p>
         </div>
     </a>
     

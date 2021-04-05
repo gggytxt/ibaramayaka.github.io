@@ -3,7 +3,7 @@
 
 	<head>
 		
-<title>Hello World-</title>
+<title>响应式开发-</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -244,7 +244,7 @@
         <ul class="tag">
             
         </ul>
-        <h1>Hello World</h1>
+        <h1>响应式开发</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -257,26 +257,86 @@
                 </svg>
                 
                 <span> <a href="">CZY</a></span>
-                <p>2021-03-22 20:01:20</p>
+                <p>2021-04-01 20:14:40</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+        <h3 id="实现响应式布局的三种方式"><a href="#实现响应式布局的三种方式" class="headerlink" title="实现响应式布局的三种方式"></a>实现响应式布局的三种方式</h3><ol>
+<li>CSS3-Media Query（最简单的方式，但是无法满足很多需求）</li>
+<li>借助原生Javascript（成本高，不推荐使用）</li>
+<li>第三方开源框架（比如bootstrap,可以很好的支持浏览器的响应式布局）</li>
+</ol>
+<h4 id="meta标签的作用："><a href="#meta标签的作用：" class="headerlink" title="meta标签的作用："></a>meta标签的作用：</h4><ul>
+<li>将页面大小，根据分辨率不同进行相应的调节，以展示给用户的大小感觉上差不多</li>
+<li>总而言之 ： meta是适配各种不同分辨率的设备</li>
+</ul>
+<h4 id="meta标签的介绍"><a href="#meta标签的介绍" class="headerlink" title="meta标签的介绍"></a>meta标签的介绍</h4><figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h4 id="参数解释："><a href="#参数解释：" class="headerlink" title="参数解释："></a>参数解释：</h4><ul>
+<li>width = device-width：宽度等于当前设备的宽度</li>
+<li>initial-scale：初始的缩放比例（默认设置为1.0）</li>
+<li>minimum-scale：允许用户缩放到的最小比例（默认设置为1.0）</li>
+<li>maximum-scale：允许用户缩放到的最大比例（默认设置为1.0）</li>
+<li>user-scalable：用户是否可以手动缩放（默认设置为no，因为我们不希望用户放大缩小页面）</li>
+</ul>
+<h3 id="Media-Query-介绍"><a href="#Media-Query-介绍" class="headerlink" title="Media Query 介绍"></a>Media Query 介绍</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903970226307080">https://juejin.cn/post/6844903970226307080</a></p>
+<h4 id="CSS3-Media-Query常见属性"><a href="#CSS3-Media-Query常见属性" class="headerlink" title="CSS3-Media Query常见属性"></a>CSS3-Media Query常见属性</h4><ul>
+<li><p>device-width,device-height      屏幕宽高</p>
+</li>
+<li><p>width,height                    渲染窗口宽高</p>
+</li>
+<li><p>orientation                     设备方向</p>
+</li>
+<li><p>resolution                      设备分辨率</p>
+</li>
+<li><p>写法</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;./demo.css&quot;</span> <span class="hljs-attr">media</span> = <span class="hljs-string">&#x27;screen and (max-width:375px)&#x27;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<ol>
+<li>href为宽度小于375px时，要启用的样式</li>
+<li>screen为媒体类型</li>
+<li>记得要加括号</li>
+</ol>
+<ul>
+<li>写在内联样式里：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-keyword">@import</span> <span class="hljs-string">&#x27;index.css&#x27;</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>:<span class="hljs-number">375px</span>);</span><br>    //等同于上面那个<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<ul>
+<li>直接写在外部css文件中：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">375px</span>)&#123;<br>    <span class="hljs-comment">/* 样式 */</span><br>    <span class="hljs-selector-tag">html</span>,<span class="hljs-selector-tag">body</span>&#123;<br>        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>        <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;<br>        <span class="hljs-attribute">background</span>: blue;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<ul>
+<li>注意：媒体查询，不占权重，例：如果在其下面在写个同权重的样式会被覆盖</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">html</span>,<span class="hljs-selector-tag">body</span>&#123;<br>    <span class="hljs-attribute">background</span>: brown;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>//就会被覆盖样式，所以媒体查询最好写在最下面</p>
+<h4 id="操作符的使用"><a href="#操作符的使用" class="headerlink" title="操作符的使用"></a>操作符的使用</h4><p>and 并且，例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 小于375px 并且大于300px作用 */</span><br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span> : <span class="hljs-number">375px</span>) <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width</span>:<span class="hljs-number">300px</span>)&#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>逗号 或，例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">// 小于<span class="hljs-number">375px</span> 或者大于<span class="hljs-number">300px</span> 作用该样式<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span> : <span class="hljs-number">375px</span>) , (<span class="hljs-attribute">min-width</span>:<span class="hljs-number">300px</span>)&#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>not 除了，例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 除了375px 以下，即375px以上可以作用 */</span><br><span class="hljs-keyword">@media</span> <span class="hljs-keyword">not</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>:<span class="hljs-number">375px</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="易混淆宽度："><a href="#易混淆宽度：" class="headerlink" title="易混淆宽度："></a>易混淆宽度：</h4><ul>
+<li>device-width/height   是设备的宽高  （如电脑浏览器的宽高 ， 不是浏览器的宽高）</li>
+<li>width/height  是视口的宽度</li>
+</ul>
+<h4 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h4><p>响应式设计是最佳选择吗：<br>并不是，内容设计问题都可以通过响应式设计思路解决，项目的预算，目标用户以及产品定位决定了其实现方式。</p>
+<h4 id="响应式设计中的名词"><a href="#响应式设计中的名词" class="headerlink" title="响应式设计中的名词"></a>响应式设计中的名词</h4><ul>
+<li>渐进增强 —&gt; iphone6 向上兼容  兼容最新设备</li>
+<li>优雅降级 —&gt; 开发通用版本 在兼容老版本  向下兼容</li>
+<li>先移动端 —&gt; 后pc</li>
+</ul>
+<p>在移动端中，先以iphone6为初始开发原型，在兼容其他版本</p>
 
     </div>
 </div>
@@ -306,19 +366,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2021/03/22/BFC-IFC-GFC-FFC/">
+    <a href="/2021/04/01/px-rem-em-vh-vw%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/">
         <div class="last">
             <span>上一篇</span>
-            <p>BFC-IFC-GFC-FFC</p>
+            <p>px-rem-em-vh-vw之间的区别</p>
         </div>
     </a>
     
 
     
-    <a href="/2020/11/03/HTML5/">
+    <a href="/2021/04/01/Retina%E5%B1%8F1px%E5%83%8F%E7%B4%A0/">
         <div class="next">
             <span>下一篇</span>
-            <p>HTML5相关问题</p>
+            <p>Retina屏1px像素</p>
         </div>
     </a>
     
